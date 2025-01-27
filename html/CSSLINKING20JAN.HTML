@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Styling</title>
+    <style>
+        /* Unvisited link */
+        a:link {
+            color: red; /* link color */
+            text-decoration: none;
+        }
+
+        /* Visited link */
+        a:visited {
+            color: green; /* visited link color */
+        }
+
+        /* Link on hover */
+        a:hover {
+            color: black; /* hover link color */
+            text-decoration: underline;
+        }
+
+        /* Link when active (clicked) */
+        a:active {
+            color: blue; /* active link color */
+        }
+    </style>
+</head>
+<body>
+    <p>Click on the link below to test:</p>
+    <a href="https://www.google.com" target="_blank">Visit Google</a>
+</body>
+</html>

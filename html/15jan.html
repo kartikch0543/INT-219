@@ -1,0 +1,79 @@
+<!--table-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        p.none{
+            border-style: none;
+        }
+        p.hidder{
+            border-style: hidden;
+        }
+        p.mix{
+            border-style: dotted dashed solid double;
+            border-color: brown green red blue;
+        }
+        h1{
+            background-color: red;
+        }
+        div {
+            background-color: green;
+        }
+        #p1{
+            background-color: blue;
+        }
+        body {
+    background-image: url('img.jpg');
+}
+     </style> 
+</head>
+<body>
+    <table border="6" cellpadding="15" cellspacing="10" width="500" height="300" align="center" boder-color="green" background="img.jpg" style="color: brown;" >
+       <theads>
+         <tr>
+            <th >Name</th>
+            <th colspan="2">Marks</th>   
+            <th>Total marks</th>
+        </theads> 
+        </tr>
+        <tbody>
+        <tr>
+                <td rowspan="2">ram</td>
+                <td>sub1</td>
+                <td>95</td>
+                <td rowspan="2" align="center">195</td>
+                
+                
+        </tr>
+        <tr>
+               
+                <td>sub2</td>
+                <td>100</td>
+        </tr>
+        <tr>
+                <td rowspan="2">shyam</td>
+                <td>sub1</td>
+                <td>90</td>
+                <td rowspan="2" align="center">190</td>
+        </tr>
+        <tr>
+                <td>sub2</td>
+                <td>95</td>
+        </tr>
+    
+        
+        </table>
+    <p class="None">None</p>
+    <p class="hidder">Hidden</p>
+    <p class="mix">mix</p>
+   <h1>kartik</h1>
+   <div>
+    <h2>choudhary</h2>
+   </div>
+   <p id="p1">20</p>
+
+</body>
+</html>

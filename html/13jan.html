@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url('img.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        label{
+            display:block;
+            margin-bottom: 10px;
+        }
+        .form{
+            background-color: rgba(255, 255, 255, 0.77);
+            border-radius: 10px;
+            padding:50px;
+            width: 400px;
+            
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input[type="text"],input[type="password"],select,textarea{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"],input[type="reset"]{
+            background-color: black;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            transition: 0.5s;
+            color: #fff;
+            
+        }
+        input:focus,textarea:focus,select:focus{
+            border-color: antiquewhite;
+        }
+        input[type="submit"]:hover,
+        input[type="reset"]:hover{
+            background-color: rgba(218,82,9,0.837);
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+   <div class="form"> <form action="">
+        <h1>Sign-Up</h1>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        <label for="select city">select city</label>
+        <select name="city" id="city">select city
+        <option value="city">HP</option>
+        <option value="city">MP</option>
+        </select>
+        <div><label for="gender">Gender</label>
+            <input type="radio" value="Male" name="gender">Male
+            <input type="radio" value="female" name="gender">female</div>
+        <label for="uplode">uplode</label>
+        <input type="file" name="uplode" id="uplode">
+        <input type="reset" value="reset">
+        <input type="submit" value="submit">
+    </form>
+    </div>
+   <footer>
+    <b>contact us</b>
+    <p>Email: <a href="mailto:info@email.com">info@email.com</a>
+    </p>
+    <p>the<code>&lt;div&gt;<code>tag is ablock level elemnt</p>
+    </footer>
+
+</body>
+</html>

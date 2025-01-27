@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header and Footer Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: rgb(13, 189, 13);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            
+        }
+        .main-content {
+            flex:auto;
+            display: flex;
+            
+            gap: 190px;
+
+        }
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+        <p>Header</p>
+        </div>
+    </header>
+    <div class="main-content">
+        <p><span >slider</span></p>
+        <p><span>Main contact</span> </p>
+    </div>
+    <footer>
+     <div class="footer">
+     <p>Footer</p>
+    </div>
+    </footer>
+</body>
+</html>

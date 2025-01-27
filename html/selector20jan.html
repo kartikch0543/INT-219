@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector</title>
+    <style>
+        .box p{
+            color: red;
+        }
+        #int219 p{
+            color: green;
+          
+        }
+        .box p:hover {
+  background-color: yellow;
+  font-size: 18px;
+}
+        #int219 p:hover {
+  background-color: red;
+  font-size: 18px;
+}
+img{
+    border: 1px solid brown;
+    border-radius: 4px;
+    padding: 4px;
+    width: 150;
+}
+img:hover{
+    box-shadow: 0 0 2px 1px pink;
+}
+div.first h1{ opacity: 0.1;}
+div.second h1{ opacity: 0.2;}
+div.third h1{ opacity: 0.3;}
+body{
+    background-image: url('images.jpg');
+    background-attachment: fixed; /*TO SET IMG FIXED*/
+    background-repeat: no-repeat;
+    background-position: top right; /*TO SET IMG AT TOP RIGHT*/
+    margin-right: 200px; 
+    
+}
+       
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>text in box.</p>
+        <h1>lets try secod combined selectors</h1>
+    </div>
+    <div id="int219">
+        <p>text not in box</p>
+        <h1>text not in box int219</h1>
+    </div>
+    <h2>the img</h2>
+    <a target="_blank" href="img.jpg">
+        <img src="img.jpg" alt="" style="width:150px">
+    </a>
+    <!-- opacity-->
+     <div class="first">
+        <h1>opacity 0.1</h1>
+     </div>
+     <div class="second">
+        <h1>opacity 0.2</h1>
+     </div>
+     <div class="third">
+        <h1>opacity 0.3</h1>
+     </div>
+     <div >
+        <h1>opacity default</h1>
+     </div>
+
+     <!-- background fixed-->
+     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse dolore quae quia hic dolor aut mollitia temporibus animi vel eligendi porro dolorem impedit, sequi dignissimos aperiam repellat! Error, odio magni.</p>
+     
+</body>
+</html>
