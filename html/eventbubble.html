@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer" id="outerDiv">
+        Outer Div
+        <div class="inner" id="innerDiv">
+            inner
+            <button id="clickButton">Click Me</button>
+        </div>
+    </div>
+    <p>Click the button to see event bubbling in action.</p>
+    <div id="messageContainer"></div> <!-- Added a container for the message -->
+
+    <script>
+        const outerDiv = document.getElementById('outerDiv');
+        const innerDiv = document.getElementById("innerDiv");
+        const button = document.getElementById("clickButton");
+        const messageContainer = document.getElementById("messageContainer");
+
+        function displayMessage(text) {
+            messageContainer.textContent = text;
+        }
+
+        outerDiv.addEventListener("click", function () {
+            displayMessage("Outer Div Clicked! (Bubbling)");
+        });
+
+        innerDiv.addEventListener("click", function () {
+            displayMessage("Inner Div Clicked! (Bubbling)");
+        });
+
+        button.addEventListener("click", function (event) {
+            displayMessage("Button Clicked! (Bubbling)");
+            event.stopPropagation();
+        });
+    </script>
+</body>
+</html>

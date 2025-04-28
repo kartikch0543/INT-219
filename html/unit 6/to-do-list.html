@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+    }
+    .addBtn {
+      background-color: #4c00ff;
+    }
+    .addBtn:hover {
+      background-color: #0056b3;
+    }
+    .editBtn {
+      background-color: #4907ff;
+      color: white;
+    }
+    .editBtn:hover {
+      background-color: #0f00e0;
+    }
+    .deleteBtn {
+      background-color: #353ddc;
+    }
+    .deleteBtn:hover {
+      background-color: #233cc8;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #e9ecef;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .selected {
+      background-color: #d1ecf1;
+      border: 2px solid #0c5460;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <div class="buttons">
+      <button class="addBtn" onclick="addTask()">Add Task</button>
+      <button class="deleteBtn" onclick="deleteSelectedTask()">Delete Task</button>
+      <button class="editBtn" onclick="editSelectedTask()">Edit Task</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+    let selectedTask = null;
+
+    function addTask() {
+      const taskText = taskInput.value.trim();
+      if (taskText === '') {
+        alert('Please enter a task!');
+        return;
+      }
+
+      const li = document.createElement('li');
+      li.textContent = taskText;
+      li.onclick = function () {
+        if (selectedTask) selectedTask.classList.remove('selected');
+        selectedTask = this;
+        selectedTask.classList.add('selected');
+      };
+      taskList.appendChild(li);
+      taskInput.value = '';
+    }
+
+    function deleteSelectedTask() {
+      if (selectedTask) {
+        taskList.removeChild(selectedTask);
+        selectedTask = null;
+      } else {
+        alert('Please select a task to delete.');
+      }
+    }
+
+    function editSelectedTask() {
+      if (selectedTask) {
+        const newText = prompt('Edit task:', selectedTask.textContent);
+        if (newText !== null && newText.trim() !== '') {
+          selectedTask.textContent = newText.trim();
+        }
+      } else {
+        alert('Please select a task to edit.');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Form Validation</h2>
+  <form id="form" onsubmit="return validateForm()">
+    <label>Username:</label>
+    <input type="text" id="username" placeholder="Enter username" />
+    <div class="error" id="usernameError"></div>
+
+    <label>Email:</label>
+    <input type="text" id="email" placeholder="Enter email" />
+    <div class="error" id="emailError"></div>
+
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter password" />
+    <div class="error" id="passwordError"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<script>
+  function validateForm() {
+    let valid = true;
+
+    const username = document.getElementById('username').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+
+    document.getElementById('usernameError').innerText = '';
+    document.getElementById('emailError').innerText = '';
+    document.getElementById('passwordError').innerText = '';
+
+   
+    if (username.length < 2) {
+      document.getElementById('usernameError').innerText = 'Username must be at least 2 characters.';
+      valid = false;
+    }
+
+    
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailPattern.test(email)) {
+      document.getElementById('emailError').innerText = 'Please enter a valid email.';
+      valid = false;
+    }
+
+   
+    if (password.length < 6) {
+      document.getElementById('passwordError').innerText = 'Password must be at least 6 characters.';
+      valid = false;
+    }
+
+    if (valid) {
+      alert('Form submitted successfully!');
+    }
+
+    return false; 
+  }
+</script>
+
+</body>
+</html>

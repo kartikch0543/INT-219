@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $("#feedbackForm").submit(function(e){
+                e.preventDefault();
+
+                let allInputs=$("feedbackForm :input");
+
+                let isEmpty=false;
+
+                allInputs.each(function(){
+                    if($(this).val().trim() ===""){
+                        isEmpty=true;
+                        $(this).css("border", "2px solid red");
+                    }else{
+                        $(this).css("border", "");
+                    }
+                });
+                if(isEmpty){
+                    alert("Please fill out all fields.");
+                    return;
+                }
+                $("feedbackForm").slideUp();
+                $("#sucessMsg").removeClass("hidden").fadeIn();
+            });
+
+            $("input#name").focus(function(){
+                $(this).css("background-color","#e0f7fa");
+            }).blur(function(){
+                $(this).css("background-color","");
+            });
+
+        });
+        
+    </script>
+
+    
+</body>
+</html>

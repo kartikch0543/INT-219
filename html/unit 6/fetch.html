@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Load JSON from File</title>
+        <style>
+            .box {
+                border: 1px solid #acc;
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+            }
+            .user-card{
+                background: #fff;
+                padding:10px;
+                margin:10px 0;
+                border-radius: 6px;
+                box-shadow
+            }
+        </style>
+    </head>
+    <body>
+        <h2>User Loaded from JSON File</h2>
+        <div id="output"></div>
+        <script>
+            fetch('user.json')
+                .then(response => response.json())
+                .then(users => {
+                    const container = document.getElementById("output");
+                    users.forEach(user => {
+                        const div = document.createElement("div");
+                        div.className = "box";
+                        div.innerHTML = `
+                            <strong>Name:</strong> ${user.name}<br>
+                            <strong>Age:</strong> ${user.age}<br>
+                            <strong>City:</strong> ${user.address.city}<br>
+                            <strong>Hobbies:</strong> ${user.hobbies.join(", ")}<br>
+                        `;
+                        container.appendChild(div);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error loading JSON:", error);
+                });
+
+        </script>
+    </body>
+</html>

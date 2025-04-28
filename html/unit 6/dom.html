@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <titlt>DOM + JSON Example</titlt>
+        <style>
+            body{
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                background-color: #f4f4f4;
+
+            }
+            .user-card{
+                background: #fff;
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+            }
+
+            #userList{
+                max-width: 400px;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>User List</h1>
+        <button id="loadBtn">Load Users</button>
+        <div id="userList"></div>
+        <script>
+            const jsonData = {
+                users: [
+                    {name: "Alice",age: 28, email: "alice@gmail.com"},
+                    {name: "Bob", age: 35, email: "bob@gmail.com"},
+                    {name: "charli", age: 22, email: "charli@gmail.com"}
+            
+                    
+                ]
+            };
+            const button = document.querySelector("#loadBtn");
+            const listContainer = document.querySelector("#userList");
+            button.addEventListener('click', () => {
+                listContainer.innerHTML = "";
+                jsonData.users.forEach(user => {
+                    const userCard = document.createElement("div");
+                    userCard.classList.add('user-card');
+                    userCard.innerHTML = `
+                        <p><strong>Name:</strong> ${user.name}</p>
+                        <p><strong>Age:</strong> ${user.age}</p>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                    `;
+                    listContainer.appendChild(userCard);
+                });
+            });
+        </script>
+    </body>
+</html>

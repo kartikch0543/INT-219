@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <body>
+            <script id="userData" type="application/json">
+                {
+                    "name": "Alice",
+                    "age": 30,
+                    "email": "alice@example.com"
+                }
+                </script>
+                <div id="output"></div>
+                
+
+                <script>
+                    const jsonScript = document.getElementById('userData');
+                    const userData = JSON.parse(jsonScript.textContent);
+                    doucument.getElementById('output').innerHTML = `
+                        
+                        <p><strong>Name: ${userData.name}</strong></p>
+                        <p><strong>Age: ${userData.age}</strong></p>
+                        <p><strong>Email: ${userData.email}</strong></p>
+                    `;
+                </script>
+                function convertio()
+
+                
+    </head>

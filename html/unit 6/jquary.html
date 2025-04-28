@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <tittle>JQuery Manipulation Demo</tittle>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{ font-family: Arial; padding: 20px;}
+        input[type="text"]{ width: 200px; padding: 5px; margin-bottom: 10px;}
+        button{ padding: 5px 10px; margin-left: 10px;}  
+        #box{
+            border: 2px solid #007acc;
+            padding:15px;
+            margin-top: 20px;
+            background-color: #f1f9ff;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+    <body>
+        <h2>Jquery Dom Manipulation </h2>
+        <input type="text" id="userInput" placeholder="enter some text">
+        <button id="setHtml">.html()</button>
+        <button id="setText">.text()</button>
+        <button id="getHtml">Get.html()</button>
+        <button id="getText">G.text()</button>
+        <button id="getVal">Get.val()</button>
+        <br>
+        <button id="append">.append()</button>
+        <button id="prepend">.prepend()</button>
+        <button id="before">.before()</button>
+        <button id="after">.after()</button>
+        <button id="remove">.remove()</button>
+        <button id="empty">.empty()</button>
+        <h3>Target Box:</h3>
+        <div id="box">
+            <p>This is the original<strong>Content</strong>.</p>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#setHtml").click(function(){
+                    let value = $("#userInput").val();
+                    $("#box").html("<p><strong>" + value + "</strong></p>");
+                });
+                $("#setText").click(function(){
+                    let value = $("#userInput").val();
+                    $("#box").text(value);
+                });
+                $("#getHtml").click(function(){
+                    alert("HTML content: " + $("#box").html());
+                });
+                $("#getText").click(function(){
+                    alert("TEXT content: " + $("#box").text());
+                });
+                $("#getVal").click(function(){
+                    alert("Input value: " + $("#userInput").val());
+
+                });
+                $("#append").click(function(){
+                   $("#box").append("<p> 👉 Append content!</p>");
+                });
+                $("#prepend").click(function(){
+                   $("#box").prepend("<p> prepend content!</p>");
+                });
+                $("#before").click(function(){
+                   $("#box").before("<p> content inserted BEFORE THE box</p>");
+                });
+                $("#after").click(function(){
+                   $("#box").after("<p> content inserted AFTER THE box</p>");
+                });
+                
+            })
+            $("#empty").click(function(){
+                $("#box").empty();
+            });
+        </script>
+    </body>
+</head>

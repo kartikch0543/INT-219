@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Experience</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+  --bg-color: #f4f9f9;
+  --text-color: #333;
+  --nav-bg: #ffffff;
+  --primary-color: #5e72e4;
+  --secondary-color: #4e62d4;
+}
+
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --nav-bg: #2d2d2d;
+  --primary-color: #7b8eff;
+  --secondary-color: #6b7ef0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: var(--nav-bg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.logo img {
+  height: 40px;
+  width: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80vh;
+  padding: 0 60px;
+  gap: 40px;
+}
+
+.hero-content {
+  flex: 1;
+  text-align: left;
+  max-width: 600px;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+  margin-bottom: 20px;
+}
+
+.hero-section h1 span {
+  color: var(--primary-color);
+}
+
+.hero-section p {
+  font-size: 18px;
+  color: var(--text-color);
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s 0.3s forwards;
+}
+
+.cta-button {
+  padding: 12px 28px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s 0.6s forwards;
+}
+
+.cta-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.demo-card {
+  flex: 1;
+  max-width: 400px;
+  background: var(--nav-bg);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s 0.9s forwards, float 3s ease-in-out infinite;
+}
+
+.demo-card h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.demo-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+@media (max-width: 968px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .demo-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hero-section h1 {
+    font-size: 36px;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-100px); }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="https://w7.pngwing.com/pngs/704/597/png-transparent-computer-icons-command-line-interface-linux-system-console-command-line-icon-miscellaneous-text-rectangle-thumbnail.png" alt="Logo">
+        Interact
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="hero-section">
+    <div class="hero-content">
+      <h1>Interactive <span>Experience</span></h1>
+      <p>Discover a beautifully crafted webpage with smooth animations, dark mode, and responsive design.</p>
+      <button class="cta-button">Get Started</button>
+    </div>
+    <div class="demo-card">
+      <h3>Hello There!</h3>
+      <p>Welcome to this interactive demo.</p>
+    </div>
+  </main>
+
+  <script>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+      }
+    });
+  </script>
+</body>
+</html>

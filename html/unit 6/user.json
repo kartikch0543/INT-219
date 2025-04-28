@@ -1,0 +1,15 @@
+[
+    {
+    "name": "Alice",
+    "age": 30,
+    "address":{"city": "New York"},
+    "hobbies":["Reading","Hiking"]
+
+},
+{
+    "name": "Bob",
+    "Age":30,
+    "address":{"city": "Los Angeles"},
+    "hobbies":["Cooking","Traveling"]
+}
+]

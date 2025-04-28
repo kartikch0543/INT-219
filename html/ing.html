@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Interactive Img Galler</h2>
+    <div class="gallery" id="gallery">
+        <p>Click an img to preview</p>
+        <img id="largerImage" scr=" " alt ="Preview will appear here">
+    </div>
+    <script>
+        const imageSoucers=[
+            "cat.jpg",
+            "t3.jpg",
+            "t1.jpg",
+            "t2.jpg",
+            "t4.jpg",
+        ];
+        const gallery = document.getElementById("gallery");
+        const largerImage = document.getElementById("largerImage");
+        function createGallery(){
+            imageSoucers.forEach((src) => {
+                const img = document.createElement("img");
+                img.src = src;
+               img.alt="Gallery Image";
+               img.addEventLister("click", function() {
+                    largerImage.src = src;
+                });
+                gallery.appendChild(img);
+            });
+        }
+    </script>
+</body>
+</html>
